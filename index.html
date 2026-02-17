@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yamaha na Giewont – Trójka Ziomków</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Odtwarzacz SoundCloud – muzyka przy wejściu -->
+  <div class="sound-wrap" id="soundWrap">
+    <button type="button" class="sound-toggle" id="soundToggle" aria-label="Odtwórz muzykę">
+      <span class="sound-icon">▶</span>
+      <span class="sound-label">PUŚĆ MUZYKĘ</span>
+    </button>
+    <div class="sound-embed" id="soundEmbed">
+      <iframe id="soundcloudFrame" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FIZOiSd8mge8S2mUvGo&auto_play=true&hide_related=true&show_comments=false&visual=false"></iframe>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="logo">YAMAHA NA GIEWONT</div>
+    <nav>
+      <a href="#o-nas">O nas</a>
+      <a href="#wjazd">Wjazd</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Czwórka pedałów.<br>Jedna misja.<br>Wjazd Yamaha na Giewont.</h1>
+      <p class="tagline">Jedziemy na szczyt. Kurwa robimy to kurwa robimy. i chuj kurwa.</p>
+      <div class="hero-image">
+        <img src="images/yamaha-giewont.jpg" alt="Yamaha wjeżdżająca na Giewont">
+      </div>
+    </section>
+
+    <section id="o-nas" class="section about">
+      <h2>O nas</h2>
+      <p>Jesteśmy trzema ziomkami, którzy wierzą, że wjazd Yamahą na Giewont to nie tylko wyczyn – to styl życia. Łączymy adrenalinę, góry i Yamahę w jednym miejscu. Zero ściemy, pełna poważna zabawa.</p>
+    </section>
+
+    <section id="wjazd" class="section ride">
+      <h2>Wjazd na Giewont</h2>
+      <p>Giewont – ikona Tatr. My – Yamaha. Jedna droga pod górę. Trójka ziomków, która nie odpuszcza. Jeśli nie wiesz, o co chodzi, to znaczy, że musisz z nami jechać.</p>
+      <div class="ride-image">
+        <img src="images/yamaha-giewont.jpg" alt="Yamaha na Giewoncie">
+      </div>
+    </section>
+
+    <section id="kontakt" class="section contact">
+      <h2>Dołącz do ekipy</h2>
+      <p>Masz Yamahę? Masz charakter? Jedziemy na Giewont.</p>
+      <a href="mailto:ziomki@yamahanagiewont.pl" class="btn">Napisz do nas</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Yamaha na Giewont © 2025</span>
+    <span>Trójka ziomków. Jeden szczyt.</span>
+  </footer>
+
+  <script>
+    (function() {
+      var wrap = document.getElementById('soundWrap');
+      var toggle = document.getElementById('soundToggle');
+      var embed = document.getElementById('soundEmbed');
+      var frame = document.getElementById('soundcloudFrame');
+      var played = false;
+
+      function openPlayer() {
+        wrap.classList.add('is-open');
+        embed.classList.add('is-visible');
+        if (!played) {
+          try {
+            if (frame && frame.contentWindow) frame.contentWindow.postMessage('{"method":"play"}', '*');
+          } catch (e) {}
+          played = true;
+        }
+      }
+
+      toggle.addEventListener('click', function() {
+        openPlayer();
+      });
+
+      // Przy wejściu na stronę – po krótkiej chwili pokazuj player i spróbuj odtworzyć
+      setTimeout(function() {
+        openPlayer();
+      }, 800);
+    })();
+  </script>
+</body>
+</html>
