@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yamaha na Giewont – Trójka Ziomków</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Overlay – jeden klik odblokowuje dźwięk i puszcza muzykę automatycznie -->
+  <div class="autoplay-overlay" id="autoplayOverlay">
+    <div class="autoplay-content">
+      <p class="autoplay-title">YAMAHA NA GIEWONT</p>
+      <p class="autoplay-hint">Kliknij żeby wejść – muzyka puści się automatycznie</p>
+    </div>
+  </div>
+
+  <div class="sound-wrap" id="soundWrap">
+    <div class="sound-embed" id="soundEmbed"></div>
+  </div>
+
+  <header class="header">
+    <div class="logo">YAMAHA NA GIEWONT</div>
+    <nav>
+      <a href="#o-nas">O nas</a>
+      <a href="#muzyka">Muzyka</a>
+      <a href="#wjazd">Wjazd</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Czwórka pedałów.<br>Jedna misja.<br>Wjazd Yamaha na <span>Giewont.</span></h1>
+      <p class="tagline">Jedziemy na szczyt. Kurwa robimy to kurwa robimy. i chuj kurwa.</p>
+      <div class="hero-image">
+        <img src="yamaha-giewont.jpg" alt="Yamaha wjeżdżająca na Giewont">
+      </div>
+    </section>
+
+    <section id="o-nas" class="section about">
+      <h2>O nas</h2>
+      <p>Jesteśmy trzema ziomkami, którzy wierzą, że wjazd Yamahą na Giewont to nie tylko wyczyn – to styl życia. Łączymy adrenalinę, góry i Yamahę w jednym miejscu. Zero ściemy, pełna poważna zabawa.</p>
+    </section>
+
+    <section id="muzyka" class="section music">
+      <h2>Tworzymy piosenki</h2>
+      <p>Słuchaj nas na SoundCloud – wjeżdżamy z bitem jak na Giewont.</p>
+      <a href="https://soundcloud.com/kielon-218718793/gowno" target="_blank" rel="noopener" class="btn btn-music">Słuchaj na SoundCloud</a>
+    </section>
+
+    <section id="wjazd" class="section ride">
+      <h2>Wjazd na Giewont</h2>
+      <p>Giewont – ikona Tatr. My – Yamaha. Jedna droga pod górę. Trójka ziomków, która nie odpuszcza. Jeśli nie wiesz, o co chodzi, to znaczy, że musisz z nami jechać.</p>
+      <div class="ride-image">
+        <img src="yamaha-giewont.jpg" alt="Yamaha na Giewoncie">
+      </div>
+    </section>
+
+    <section id="kontakt" class="section contact">
+      <h2>Dołącz do ekipy</h2>
+      <p>Masz Yamahę? Masz charakter? Jedziemy na Giewont.</p>
+      <a href="mailto:ziomki@yamahanagiewont.pl" class="btn">Napisz do nas</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Yamaha na Giewont © 2025</span>
+    <span>Trójka ziomków. Jeden szczyt.</span>
+  </footer>
+
+  <script>
+    (function() {
+      var overlay = document.getElementById('autoplayOverlay');
+      var embed = document.getElementById('soundEmbed');
+      var wrap = document.getElementById('soundWrap');
+      var trackUrl = 'https://soundcloud.com/kielon-218718793/gowno';
+      var embedUrl = 'https://w.soundcloud.com/player/?url=' + encodeURIComponent(trackUrl) + '&auto_play=true&hide_related=true&show_comments=false&visual=false';
+
+      function startMusic() {
+        overlay.classList.add('is-hidden');
+        if (!embed.querySelector('iframe')) {
+          var iframe = document.createElement('iframe');
+          iframe.width = '100%';
+          iframe.height = '166';
+          iframe.scrolling = 'no';
+          iframe.frameBorder = '0';
+          iframe.allow = 'autoplay';
+          iframe.src = embedUrl;
+          embed.appendChild(iframe);
+        }
+        wrap.classList.add('is-open');
+        embed.classList.add('is-visible');
+      }
+
+      overlay.addEventListener('click', startMusic);
+      document.addEventListener('keydown', function once(e) {
+        if (e.code === 'Space' || e.code === 'Enter') {
+          e.preventDefault();
+          startMusic();
+          document.removeEventListener('keydown', once);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
