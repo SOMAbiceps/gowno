@@ -11,6 +11,68 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* ----- Porozrzucane napisy jak sperma ----- */
+.vulgar-float {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.vulgar-tag {
+  position: absolute;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  color: var(--red);
+  opacity: 0.25;
+  text-transform: lowercase;
+  white-space: nowrap;
+  animation: vulgar-float 8s ease-in-out infinite;
+}
+
+/* Lewa krawędź (0–8%) – napisy nie nachodzą na sekcje i zdjęcia */
+.vulgar-tag.v1 { top: 8%; left: 2%; font-size: 1.2rem; transform: rotate(-15deg); animation-delay: 0s; }
+.vulgar-tag.v2 { top: 15%; left: 5%; font-size: 1rem; transform: rotate(12deg); animation-delay: 0.5s; opacity: 0.2; }
+.vulgar-tag.v3 { top: 22%; left: 1%; font-size: 0.9rem; transform: rotate(-8deg); animation-delay: 1s; }
+.vulgar-tag.v4 { top: 35%; left: 4%; font-size: 1.3rem; transform: rotate(25deg); animation-delay: 1.5s; opacity: 0.18; }
+.vulgar-tag.v5 { top: 45%; left: 2%; font-size: 1.1rem; transform: rotate(-20deg); animation-delay: 2s; }
+.vulgar-tag.v6 { top: 55%; left: 6%; font-size: 0.95rem; transform: rotate(5deg); animation-delay: 2.5s; opacity: 0.22; }
+.vulgar-tag.v7 { top: 65%; left: 3%; font-size: 0.85rem; transform: rotate(-12deg); animation-delay: 3s; }
+.vulgar-tag.v8 { top: 72%; left: 1%; font-size: 1.15rem; transform: rotate(18deg); animation-delay: 3.5s; opacity: 0.19; }
+.vulgar-tag.v9 { top: 82%; left: 5%; font-size: 1rem; transform: rotate(-25deg); animation-delay: 4s; }
+.vulgar-tag.v10 { top: 90%; left: 3%; font-size: 0.9rem; transform: rotate(10deg); animation-delay: 4.5s; opacity: 0.24; }
+.vulgar-tag.v11 { top: 12%; left: 7%; font-size: 1.1rem; transform: rotate(22deg); animation-delay: 0.3s; opacity: 0.17; }
+.vulgar-tag.v12 { top: 28%; left: 2%; font-size: 0.95rem; transform: rotate(-18deg); animation-delay: 0.8s; }
+.vulgar-tag.v13 { top: 42%; left: 4%; font-size: 1.2rem; transform: rotate(7deg); animation-delay: 1.3s; opacity: 0.21; }
+.vulgar-tag.v14 { top: 58%; left: 1%; font-size: 1rem; transform: rotate(-14deg); animation-delay: 1.8s; }
+.vulgar-tag.v15 { top: 75%; left: 6%; font-size: 1.05rem; transform: rotate(30deg); animation-delay: 2.2s; opacity: 0.16; }
+/* Prawa krawędź (92–99%) – napisy nie nachodzą na sekcje i zdjęcia */
+.vulgar-tag.v16 { top: 5%; right: 3%; left: auto; font-size: 0.9rem; transform: rotate(-10deg); animation-delay: 0.2s; }
+.vulgar-tag.v17 { top: 25%; right: 2%; left: auto; font-size: 1.2rem; transform: rotate(15deg); animation-delay: 0.7s; opacity: 0.23; }
+.vulgar-tag.v18 { top: 40%; right: 5%; left: auto; font-size: 1rem; transform: rotate(-22deg); animation-delay: 1.2s; }
+.vulgar-tag.v19 { top: 52%; right: 1%; left: auto; font-size: 1.1rem; transform: rotate(8deg); animation-delay: 1.7s; opacity: 0.2; }
+.vulgar-tag.v20 { top: 68%; right: 4%; left: auto; font-size: 0.88rem; transform: rotate(-17deg); animation-delay: 2.3s; }
+.vulgar-tag.v21 { top: 18%; right: 6%; left: auto; font-size: 1.25rem; transform: rotate(28deg); animation-delay: 0.4s; opacity: 0.18; }
+.vulgar-tag.v22 { top: 38%; right: 2%; left: auto; font-size: 1rem; transform: rotate(-6deg); animation-delay: 0.9s; }
+.vulgar-tag.v23 { top: 48%; right: 5%; left: auto; font-size: 1.1rem; transform: rotate(20deg); animation-delay: 1.4s; opacity: 0.22; }
+.vulgar-tag.v24 { top: 62%; left: 7%; font-size: 0.92rem; transform: rotate(-28deg); animation-delay: 1.9s; }
+.vulgar-tag.v25 { top: 78%; right: 3%; left: auto; font-size: 1.2rem; transform: rotate(11deg); animation-delay: 2.4s; opacity: 0.19; }
+.vulgar-tag.v26 { top: 88%; right: 6%; left: auto; font-size: 1rem; transform: rotate(-9deg); animation-delay: 2.8s; }
+.vulgar-tag.v27 { top: 95%; right: 2%; left: auto; font-size: 1.05rem; transform: rotate(16deg); animation-delay: 3.2s; opacity: 0.21; }
+.vulgar-tag.v28 { top: 3%; right: 5%; left: auto; font-size: 0.87rem; transform: rotate(-24deg); animation-delay: 3.5s; }
+.vulgar-tag.v29 { top: 33%; left: 4%; font-size: 1.2rem; transform: rotate(4deg); animation-delay: 3.8s; opacity: 0.17; }
+.vulgar-tag.v30 { top: 85%; right: 4%; left: auto; font-size: 1.05rem; transform: rotate(-19deg); animation-delay: 4.2s; }
+
+@keyframes vulgar-float {
+  0%, 100% { opacity: inherit; }
+  50% { opacity: 0.4; }
+}
+
 body {
   font-family: 'DM Sans', sans-serif;
   background: var(--black);
@@ -148,15 +210,25 @@ main {
 .hero h1 {
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(2.5rem, 8vw, 5.5rem);
-  line-height: 1.1;
+  line-height: 0.95;
   letter-spacing: 0.02em;
   color: var(--white);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   animation: title-in 1s ease-out;
 }
 
 .hero h1 span {
   color: var(--red);
+}
+
+.hero h1 .hero-karzel {
+  font-size: 0.4em;
+  font-weight: 400;
+  color: var(--white);
+  opacity: 0.75;
+  letter-spacing: 0.15em;
+  font-family: 'DM Sans', sans-serif;
+  vertical-align: middle;
 }
 
 @keyframes title-in {
@@ -176,7 +248,8 @@ main {
   font-weight: 800;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
+  margin-top: -0.25rem;
   animation: tagline-in 1s ease-out 0.3s both;
 }
 
@@ -192,7 +265,7 @@ main {
 }
 
 .hero-image {
-  margin-top: 2.5rem;
+  margin-top: 1.25rem;
   max-width: 900px;
   width: 100%;
   overflow: hidden;
@@ -235,6 +308,7 @@ main {
   max-width: 1100px;
   margin: 0 auto;
   padding: 4rem 2rem;
+  scroll-margin-top: 90px;
 }
 
 .section h2 {
@@ -326,18 +400,6 @@ main {
 
 .music p { margin-bottom: 1.5rem; color: var(--white); }
 
-.btn-music {
-  background: var(--white) !important;
-  color: var(--black) !important;
-  border: 2px solid var(--black);
-}
-
-.btn-music:hover {
-  background: var(--red) !important;
-  color: var(--white) !important;
-  border-color: var(--white);
-}
-
 .contact {
   text-align: center;
   padding: 4rem 2rem;
@@ -365,6 +427,76 @@ main {
 .btn:hover {
   background: var(--white);
   color: var(--black) !important;
+}
+
+.btn.btn-music {
+  background: var(--white) !important;
+  color: var(--black) !important;
+  border: 2px solid var(--black);
+}
+
+.btn.btn-music:hover {
+  background: var(--red) !important;
+  color: var(--white) !important;
+  border-color: var(--white);
+}
+
+/* Toast po kliknięciu "Napisz do nas" */
+.email-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: var(--black);
+  border: 4px solid var(--red);
+  padding: 2.5rem 3.5rem 2.5rem 3rem;
+  z-index: 250;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 90%;
+  min-width: 320px;
+  box-shadow: 0 16px 64px rgba(0,0,0,0.6);
+  transition: transform 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.email-toast.is-visible {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.email-toast p {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.4;
+}
+
+.email-toast-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--red);
+  color: var(--white);
+  border: 2px solid var(--white);
+  width: 44px;
+  height: 44px;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.email-toast-close:hover {
+  background: var(--white);
+  color: var(--black);
 }
 
 .footer {
